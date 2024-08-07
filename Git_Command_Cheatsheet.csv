@@ -1,0 +1,87 @@
+Command,Description
+git init,Initializes a new Git repository.
+git clone [url],Clones a repository into a new directory.
+"git config --global user.name ""[name]""",Sets the name for the global Git configuration.
+"git config --global user.email ""[email]""",Sets the email for the global Git configuration.
+git status,Shows the working tree status.
+git add [file],Adds a file to the staging area.
+git add .,Adds all files to the staging area.
+"git commit -m ""[message]""",Commits the staged changes with a message.
+git commit -a,Commits all changes in tracked files.
+git diff,"Shows changes between commits, commit and working tree, etc."
+git diff --staged,Shows changes between the staging area and the last commit.
+git reset [file],Unstages a file while retaining the changes in the working directory.
+git reset --hard,Resets the working directory and staging area to the last commit.
+git reset --soft [commit],Resets the staging area to the specified commit.
+git log,Shows the commit logs.
+git log --oneline,Shows the commit logs in one line per commit.
+git log --graph,Shows a graphical representation of the commit history.
+git log -p,Shows the patch (differences) introduced in each commit.
+git branch,Lists all branches in the repository.
+git branch [branch-name],Creates a new branch.
+git checkout [branch-name],Switches to the specified branch.
+git checkout -b [branch-name],Creates and switches to a new branch.
+git merge [branch-name],Merges the specified branch into the current branch.
+git branch -d [branch-name],Deletes the specified branch.
+git branch -D [branch-name],Forcefully deletes the specified branch.
+git stash,Stashes the changes in a dirty working directory.
+git stash list,Lists all stashes.
+git stash apply,Applies the changes from a stash.
+git stash drop,Deletes a stash from the list of stashes.
+git remote add [alias] [url],Adds a new remote repository.
+git remote -v,Lists all remote repositories.
+git fetch [alias],Fetches changes from the remote repository.
+git pull [alias] [branch],Pulls changes from the remote repository and merges them into the current branch.
+git push [alias] [branch],Pushes changes to the remote repository.
+git tag [tag-name],Creates a new tag.
+git tag -d [tag-name],Deletes the specified tag.
+git show [tag-name],Shows details about the specified tag.
+git rebase [branch],Reapplies commits on top of another base tip.
+git cherry-pick [commit],Applies the changes from the specified commit.
+git rm [file],Removes a file from the working directory and the staging area.
+git mv [old-filename] [new-filename],Renames a file and stages the change.
+git bisect start,Starts the bisecting process to find a commit that introduced a bug.
+git bisect bad,Marks the current commit as bad during the bisecting process.
+git bisect good [commit],Marks the specified commit as good during the bisecting process.
+git blame [file],Shows what revision and author last modified each line of a file.
+git archive --format=zip --output=[file.zip] [commit],Creates an archive of the repository at the specified commit.
+git cherry [upstream] [branch],Lists commits not merged upstream.
+git clean -fd,Removes untracked files and directories from the working directory.
+git reflog,Shows the reference logs of changes to the tips of branches.
+git show [commit],Shows various types of objects.
+git describe --tags,Describes a commit using the most recent tag reachable from it.
+git shortlog,Summarizes git log output.
+git gc,Runs a garbage collection on the repository.
+git fsck,Verifies the integrity of the repository.
+git remote rename [old-name] [new-name],Renames a remote repository.
+git remote remove [name],Removes a remote repository.
+"git tag -a [tag-name] -m ""[message]""",Creates an annotated tag.
+git notes,Adds or inspects object notes.
+git submodule add [url] [path],Adds a new submodule.
+git submodule init,Initializes submodules in the repository.
+git submodule update,Updates all submodules to the latest commit.
+git revert [commit],Reverts changes from a specific commit.
+git config --global alias.[alias-name] [command],Creates an alias for a Git command.
+git archive [branch] --format=zip --output=[archive.zip],Creates an archive of the branch as a zip file.
+git commit --amend,Amends the most recent commit.
+git pull --rebase,Pulls changes from the remote repository and applies them on top of local commits.
+"git log --pretty=format:""%h - %an, %ar : %s""",Formats the log output.
+git diff --name-only,Shows only the names of changed files.
+git diff --cached,Shows changes between the index and the last commit.
+git grep [text],Searches for text in the repository.
+git whatchanged,Shows logs with file status.
+git instaweb,Instantly browses the working repository in gitweb.
+git format-patch [start-commit],Creates patch files starting from the specified commit.
+git apply [patch-file],Applies a patch file to the repository.
+git bundle create [file] [branch],Bundles a branch into a single file.
+git bundle verify [file],Verifies the bundle file.
+git bundle list-heads [file],Lists references in a bundle file.
+git bundle unbundle [file],Unbundles a file into the repository.
+git rerere,Reuses recorded resolution of conflicted merges.
+git prune,Removes unreachable objects from the repository.
+git filter-branch --tree-filter [command] [branch],Filters the branch history using a command.
+git checkout --orphan [branch-name],Creates a new orphan branch.
+git svn,Interacts with Subversion repositories.
+git blame -C,Shows changes that were copied from another file.
+"git blame -L [start,end] [file]",Blames a range of lines in a file.
+git blame --reverse,Finds the revision that modified each line in a file.
