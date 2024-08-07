@@ -1,0 +1,80 @@
+import pandas as pd
+
+# Creating a dictionary with the Git commands and their descriptions
+git_commands = {
+    "Command": [
+        "git init", "git clone [url]", "git config --global user.name \"[name]\"",
+        "git config --global user.email \"[email]\"", "git status", "git add [file]",
+        "git add .", "git commit -m \"[message]\"", "git commit -a", "git diff",
+        "git diff --staged", "git reset [file]", "git reset --hard", "git reset --soft [commit]",
+        "git log", "git log --oneline", "git log --graph", "git log -p", "git branch",
+        "git branch [branch-name]", "git checkout [branch-name]", "git checkout -b [branch-name]",
+        "git merge [branch-name]", "git branch -d [branch-name]", "git branch -D [branch-name]",
+        "git stash", "git stash list", "git stash apply", "git stash drop", "git remote add [alias] [url]",
+        "git remote -v", "git fetch [alias]", "git pull [alias] [branch]", "git push [alias] [branch]",
+        "git tag [tag-name]", "git tag -d [tag-name]", "git show [tag-name]", "git rebase [branch]",
+        "git cherry-pick [commit]", "git rm [file]", "git mv [old-filename] [new-filename]", "git bisect start",
+        "git bisect bad", "git bisect good [commit]", "git blame [file]", "git archive --format=zip --output=[file.zip] [commit]",
+        "git cherry [upstream] [branch]", "git clean -fd", "git reflog", "git show [commit]",
+        "git describe --tags", "git shortlog", "git gc", "git fsck", "git remote rename [old-name] [new-name]",
+        "git remote remove [name]", "git tag -a [tag-name] -m \"[message]\"", "git notes", "git submodule add [url] [path]",
+        "git submodule init", "git submodule update", "git revert [commit]", "git config --global alias.[alias-name] [command]",
+        "git archive [branch] --format=zip --output=[archive.zip]", "git commit --amend", "git pull --rebase",
+        "git log --pretty=format:\"%h - %an, %ar : %s\"", "git diff --name-only", "git diff --cached",
+        "git grep [text]", "git whatchanged", "git instaweb", "git format-patch [start-commit]",
+        "git apply [patch-file]", "git bundle create [file] [branch]", "git bundle verify [file]",
+        "git bundle list-heads [file]", "git bundle unbundle [file]", "git rerere", "git prune",
+        "git filter-branch --tree-filter [command] [branch]", "git checkout --orphan [branch-name]", "git svn",
+        "git blame -C", "git blame -L [start,end] [file]", "git blame --reverse"
+    ],
+    "Description": [
+        "Initializes a new Git repository.", "Clones a repository into a new directory.",
+        "Sets the name for the global Git configuration.", "Sets the email for the global Git configuration.",
+        "Shows the working tree status.", "Adds a file to the staging area.",
+        "Adds all files to the staging area.", "Commits the staged changes with a message.",
+        "Commits all changes in tracked files.", "Shows changes between commits, commit and working tree, etc.",
+        "Shows changes between the staging area and the last commit.", "Unstages a file while retaining the changes in the working directory.",
+        "Resets the working directory and staging area to the last commit.", "Resets the staging area to the specified commit.",
+        "Shows the commit logs.", "Shows the commit logs in one line per commit.",
+        "Shows a graphical representation of the commit history.", "Shows the patch (differences) introduced in each commit.",
+        "Lists all branches in the repository.", "Creates a new branch.", "Switches to the specified branch.",
+        "Creates and switches to a new branch.", "Merges the specified branch into the current branch.",
+        "Deletes the specified branch.", "Forcefully deletes the specified branch.", "Stashes the changes in a dirty working directory.",
+        "Lists all stashes.", "Applies the changes from a stash.", "Deletes a stash from the list of stashes.",
+        "Adds a new remote repository.", "Lists all remote repositories.", "Fetches changes from the remote repository.",
+        "Pulls changes from the remote repository and merges them into the current branch.",
+        "Pushes changes to the remote repository.", "Creates a new tag.", "Deletes the specified tag.",
+        "Shows details about the specified tag.", "Reapplies commits on top of another base tip.",
+        "Applies the changes from the specified commit.", "Removes a file from the working directory and the staging area.",
+        "Renames a file and stages the change.", "Starts the bisecting process to find a commit that introduced a bug.",
+        "Marks the current commit as bad during the bisecting process.", "Marks the specified commit as good during the bisecting process.",
+        "Shows what revision and author last modified each line of a file.", "Creates an archive of the repository at the specified commit.",
+        "Lists commits not merged upstream.", "Removes untracked files and directories from the working directory.",
+        "Shows the reference logs of changes to the tips of branches.", "Shows various types of objects.",
+        "Describes a commit using the most recent tag reachable from it.", "Summarizes git log output.",
+        "Runs a garbage collection on the repository.", "Verifies the integrity of the repository.",
+        "Renames a remote repository.", "Removes a remote repository.", "Creates an annotated tag.",
+        "Adds or inspects object notes.", "Adds a new submodule.", "Initializes submodules in the repository.",
+        "Updates all submodules to the latest commit.", "Reverts changes from a specific commit.",
+        "Creates an alias for a Git command.", "Creates an archive of the branch as a zip file.", "Amends the most recent commit.",
+        "Pulls changes from the remote repository and applies them on top of local commits.",
+        "Formats the log output.", "Shows only the names of changed files.", "Shows changes between the index and the last commit.",
+        "Searches for text in the repository.", "Shows logs with file status.", "Instantly browses the working repository in gitweb.",
+        "Creates patch files starting from the specified commit.", "Applies a patch file to the repository.",
+        "Bundles a branch into a single file.", "Verifies the bundle file.", "Lists references in a bundle file.",
+        "Unbundles a file into the repository.", "Reuses recorded resolution of conflicted merges.", "Removes unreachable objects from the repository.",
+        "Filters the branch history using a command.", "Creates a new orphan branch.", "Interacts with Subversion repositories.",
+        "Shows changes that were copied from another file.", "Blames a range of lines in a file.", "Finds the revision that modified each line in a file."
+    ]
+}
+
+# Creating a DataFrame
+git_df = pd.DataFrame(git_commands)
+
+# Saving the DataFrame to a CSV file
+file_path = "/mnt/data/git_command_cheatsheet.csv"
+git_df.to_csv(file_path, index=False)
+
+import ace_tools as tools; tools.display_dataframe_to_user(name="Git Command Cheatsheet", dataframe=git_df)
+
+file_path
